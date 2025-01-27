@@ -21,5 +21,12 @@ def get_clicks():
     return {"clicks": click_count}  # Return the click count as JSON
 
 
+@app.route('/reset-clicks', methods=['POST'])
+def reset_clicks():
+    global click_count
+    click_count = 0  # Reset the click count
+    return {"message": "Click count reset successfully", "clicks": click_count}, 200
+
+
 if __name__ == "__main__":
     app.run(debug=True)
